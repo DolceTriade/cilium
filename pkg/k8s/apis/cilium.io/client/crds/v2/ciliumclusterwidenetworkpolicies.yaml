@@ -407,12 +407,13 @@ spec:
                                 protocol:
                                   description: "Protocol is the L4 protocol. If omitted
                                     or empty, any protocol matches. Accepted values:
-                                    \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching on
+                                    \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching on
                                     ICMP is not supported. \n Named port specified
                                     for a container may narrow this down, but may
                                     not contradict this."
                                   enum:
                                   - TCP
+                                  - SCTP
                                   - UDP
                                   - ANY
                                   type: string
@@ -1122,12 +1123,13 @@ spec:
                                 protocol:
                                   description: "Protocol is the L4 protocol. If omitted
                                     or empty, any protocol matches. Accepted values:
-                                    \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching on
+                                    \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching on
                                     ICMP is not supported. \n Named port specified
                                     for a container may narrow this down, but may
                                     not contradict this."
                                   enum:
                                   - TCP
+                                  - SCTP
                                   - UDP
                                   - ANY
                                   type: string
@@ -1677,12 +1679,13 @@ spec:
                                 protocol:
                                   description: "Protocol is the L4 protocol. If omitted
                                     or empty, any protocol matches. Accepted values:
-                                    \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching on
+                                    \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching on
                                     ICMP is not supported. \n Named port specified
                                     for a container may narrow this down, but may
                                     not contradict this."
                                   enum:
                                   - TCP
+                                  - SCTP
                                   - UDP
                                   - ANY
                                   type: string
@@ -2276,12 +2279,13 @@ spec:
                                 protocol:
                                   description: "Protocol is the L4 protocol. If omitted
                                     or empty, any protocol matches. Accepted values:
-                                    \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching on
+                                    \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching on
                                     ICMP is not supported. \n Named port specified
                                     for a container may narrow this down, but may
                                     not contradict this."
                                   enum:
                                   - TCP
+                                  - SCTP
                                   - UDP
                                   - ANY
                                   type: string
@@ -2751,12 +2755,13 @@ spec:
                                   protocol:
                                     description: "Protocol is the L4 protocol. If
                                       omitted or empty, any protocol matches. Accepted
-                                      values: \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching
+                                      values: \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching
                                       on ICMP is not supported. \n Named port specified
                                       for a container may narrow this down, but may
                                       not contradict this."
                                     enum:
                                     - TCP
+                                    - SCTP
                                     - UDP
                                     - ANY
                                     type: string
@@ -3478,12 +3483,13 @@ spec:
                                   protocol:
                                     description: "Protocol is the L4 protocol. If
                                       omitted or empty, any protocol matches. Accepted
-                                      values: \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching
+                                      values: \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching
                                       on ICMP is not supported. \n Named port specified
                                       for a container may narrow this down, but may
                                       not contradict this."
                                     enum:
                                     - TCP
+                                    - SCTP
                                     - UDP
                                     - ANY
                                     type: string
@@ -4040,12 +4046,13 @@ spec:
                                   protocol:
                                     description: "Protocol is the L4 protocol. If
                                       omitted or empty, any protocol matches. Accepted
-                                      values: \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching
+                                      values: \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching
                                       on ICMP is not supported. \n Named port specified
                                       for a container may narrow this down, but may
                                       not contradict this."
                                     enum:
                                     - TCP
+                                    - SCTP
                                     - UDP
                                     - ANY
                                     type: string
@@ -4647,12 +4654,13 @@ spec:
                                   protocol:
                                     description: "Protocol is the L4 protocol. If
                                       omitted or empty, any protocol matches. Accepted
-                                      values: \"TCP\", \"UDP\", \"\"/\"ANY\" \n Matching
+                                      values: \"TCP\", \"SCTP\", \"UDP\", \"\"/\"ANY\" \n Matching
                                       on ICMP is not supported. \n Named port specified
                                       for a container may narrow this down, but may
                                       not contradict this."
                                     enum:
                                     - TCP
+                                    - SCTP
                                     - UDP
                                     - ANY
                                     type: string

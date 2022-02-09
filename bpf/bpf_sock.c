@@ -150,6 +150,10 @@ bool sock_proto_enabled(__u32 proto)
 	case IPPROTO_UDP:
 		return true;
 #endif /* ENABLE_HOST_SERVICES_UDP */
+#ifdef ENABLE_HOST_SERVICES_SCTP
+	case IPPROTO_SCTP:
+		return true;
+#endif /* ENABLE_HOST_SERVICES_SCTP */
 	default:
 		return false;
 	}
@@ -309,6 +313,10 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx __maybe_unused,
 	case IPPROTO_UDP:
 		sk = sk_lookup_udp(ctx, &tuple, sizeof(tuple.ipv4),
 				   BPF_F_CURRENT_NETNS, 0);
+		break;
+	case IPPROTO_SCTP:
+		sk = sk_lookup_sctp(ctx, &tuple, sizeof(tuple.ipv4),
+				    BPF_F_CURRENT_NETNS, 0);
 		break;
 	}
 

@@ -413,6 +413,7 @@ static __always_inline int ct_lookup6(const void *map,
 		break;
 
 	case IPPROTO_UDP:
+	case IPPROTO_SCTP:
 		/* load sport + dport into tuple */
 		if (ctx_load_bytes(ctx, l4_off, &tuple->dport, 4) < 0)
 			return DROP_CT_INVALID_HDR;
@@ -708,6 +709,7 @@ static __always_inline int ct_lookup4(const void *map,
 		break;
 
 	case IPPROTO_UDP:
+	case IPPROTO_SCTP:
 		err = ipv4_ct_extract_l4_ports(ctx, off, dir, tuple, NULL);
 		if (err < 0)
 			return err;

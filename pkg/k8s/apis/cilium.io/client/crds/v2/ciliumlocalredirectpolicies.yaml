@@ -130,10 +130,11 @@ spec:
                           type: string
                         protocol:
                           description: 'Protocol is the L4 protocol. Accepted values:
-                            "TCP", "UDP"'
+                            "TCP", "UDP", "SCTP"'
                           enum:
                           - TCP
                           - UDP
+                          - SCTP
                           type: string
                       required:
                       - port
@@ -191,10 +192,11 @@ spec:
                               type: string
                             protocol:
                               description: 'Protocol is the L4 protocol. Accepted
-                                values: "TCP", "UDP"'
+                                values: "TCP", "UDP", "SCTP"'
                               enum:
                               - TCP
                               - UDP
+                              - SCTP
                               type: string
                           required:
                           - port
@@ -246,10 +248,11 @@ spec:
                               type: string
                             protocol:
                               description: 'Protocol is the L4 protocol. Accepted
-                                values: "TCP", "UDP"'
+                                values: "TCP", "UDP", "SCTP"'
                               enum:
                               - TCP
                               - UDP
+                              - SCTP
                               type: string
                           required:
                           - port

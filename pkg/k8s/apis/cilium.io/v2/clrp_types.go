@@ -90,9 +90,9 @@ type PortInfo struct {
 	Port string `json:"port"`
 
 	// Protocol is the L4 protocol.
-	// Accepted values: "TCP", "UDP"
+	// Accepted values: "TCP", "UDP", "SCTP"
 	//
-	// +kubebuilder:validation:Enum=TCP;UDP
+	// +kubebuilder:validation:Enum=TCP;UDP;SCTP
 	// +kubebuilder:validation:Required
 	Protocol api.L4Proto `json:"protocol"`
 

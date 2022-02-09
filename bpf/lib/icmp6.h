@@ -316,6 +316,7 @@ static __always_inline int __icmp6_send_time_exceeded(struct __ctx_buff *ctx,
 			return DROP_WRITE_ERROR;
 
 		break;
+	/* FIXME: Add IPPROTO_SCTP support */
 	default:
 		return DROP_UNKNOWN_L4;
 	}

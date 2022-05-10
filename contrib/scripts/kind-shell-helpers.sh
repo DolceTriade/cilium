@@ -72,6 +72,8 @@ cilium-helm-install(){
           --set image.tag=$CILIUM_CI_TAG \
           --set operator.image.repository=localhost:5000/cilium/operator \
           --set operator.image.suffix="" \
+          --set k8sServiceHost=192.168.8.6 \
+          --set k8sServicePort=6443 \
           --set operator.image.tag=$CILIUM_CI_TAG > /tmp/cilium.yaml
         kubectl apply -f /tmp/cilium.yaml
     )

@@ -315,8 +315,7 @@ sock4_skip_xlate_if_same_netns(struct bpf_sock_addr *ctx __maybe_unused,
 				   BPF_F_CURRENT_NETNS, 0);
 		break;
 	case IPPROTO_SCTP:
-		sk = sk_lookup_sctp(ctx, &tuple, sizeof(tuple.ipv4),
-				    BPF_F_CURRENT_NETNS, 0);
+               // FIXME: Add support in the kernel for loooking up SCTP sockets.
 		break;
 	}
 

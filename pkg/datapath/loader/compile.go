@@ -237,6 +237,7 @@ func compileAndLink(ctx context.Context, prog *progInfo, dir *directoryInfo, deb
 	if err := compileCmd.Start(); err != nil {
 		return fmt.Errorf("Failed to start command %s: %s", compileCmd.Args, err)
 	}
+	
 
 	var compileOut []byte
 	/* Ignoring the output here because pkg/command/exec will log it. */

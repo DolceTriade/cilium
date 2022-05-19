@@ -290,7 +290,8 @@ ipv6_extract_tuple(struct __ctx_buff *ctx, struct ipv6_ct_tuple *tuple,
 		return ret;
 
 	if (unlikely(tuple->nexthdr != IPPROTO_TCP &&
-		     tuple->nexthdr != IPPROTO_UDP))
+		     tuple->nexthdr != IPPROTO_UDP &&
+		     tuple->nexthdr != IPPROTO_SCTP))
 		return DROP_CT_UNKNOWN_PROTO;
 
 	if (ret < 0)
@@ -471,7 +472,8 @@ ipv4_extract_tuple(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple,
 	tuple->nexthdr = ip4->protocol;
 
 	if (unlikely(tuple->nexthdr != IPPROTO_TCP &&
-		     tuple->nexthdr != IPPROTO_UDP))
+		     tuple->nexthdr != IPPROTO_UDP &&
+		     tuple->nexthdr != IPPROTO_SCTP))
 		return DROP_CT_UNKNOWN_PROTO;
 
 	tuple->daddr = ip4->daddr;
@@ -588,8 +590,10 @@ ct_extract_ports4(struct __ctx_buff *ctx, int off, enum ct_dir dir,
 		}
 		break;
 
+	/* TCP, UDP, and SCTP all have the ports at the same location */
 	case IPPROTO_TCP:
 	case IPPROTO_UDP:
+	case IPPROTO_SCTP:
 		err = ipv4_ct_extract_l4_ports(ctx, off, dir, tuple, NULL);
 		if (err < 0)
 			return err;

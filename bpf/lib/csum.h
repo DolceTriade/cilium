@@ -41,7 +41,17 @@ static __always_inline void csum_l4_offset_and_flags(__u8 nexthdr,
 		break;
 
 	case IPPROTO_SCTP:
-		off->offset = SCTP_CSUM_OFF;
+		/* Disable readjusting checksums of SCTP packets.
+		 * SCTP packets use a crc32c checksum over the SCTP
+		 * header and the data and do not checksum the any
+		 * part of the packet prior to the SCTP header.
+		 * This means as long as we do not modify the ports
+		 * the SCTP checksum will not change. We do this
+		 * because there is not a good way to calculate a
+		 * crc32c checksum in eBPF and will likely require
+		 * additional kernel support.
+		 */
+		off->offset = 0;
 		break;
 
 	case IPPROTO_ICMPV6:

@@ -398,8 +398,12 @@ static __always_inline int reverse_map_l4_port(struct __ctx_buff *ctx, __u8 next
 				return ret;
 
 			if (port != old_port) {
+				/* This will change the SCTP checksum, which we cannot fix right now.
+				 * This will likely need kernel changes before we can drop this.
+				 */
+				if (nexthdr == IPPROTO_SCTP) return CTX_ACT_DROP;
 				ret = l4_modify_port(ctx, l4_off, TCP_SPORT_OFF,
-						     csum_off, port, old_port);
+							csum_off, port, old_port);
 				if (IS_ERR(ret))
 					return ret;
 			}
@@ -676,9 +680,14 @@ static __always_inline int lb6_xlate(struct __ctx_buff *ctx,
 
 l4_xlate:
 	if (likely(backend->port) && key->dport != backend->port &&
-	    (nexthdr == IPPROTO_TCP || nexthdr == IPPROTO_UDP)) {
+	    (nexthdr == IPPROTO_TCP || nexthdr == IPPROTO_UDP || nexthdr == IPPROTO_SCTP)) {
 		__be16 tmp = backend->port;
 		int ret;
+
+		/* This will change the SCTP checksum, which we cannot fix right now.
+		 * This will likely need kernel changes before we can drop this.
+		 */
+		if (nexthdr == IPPROTO_SCTP) return CTX_ACT_DROP;
 
 		/* Port offsets for UDP and TCP are the same */
 		ret = l4_modify_port(ctx, l4_off, TCP_DPORT_OFF, csum_off,
@@ -1148,7 +1157,8 @@ static __always_inline int
 lb4_populate_ports(struct __ctx_buff *ctx, struct ipv4_ct_tuple *tuple, int off)
 {
 	if (tuple->nexthdr == IPPROTO_TCP ||
-	    tuple->nexthdr == IPPROTO_UDP) {
+	    tuple->nexthdr == IPPROTO_UDP ||
+	    tuple->nexthdr == IPPROTO_SCTP) {
 		struct {
 			__be16 sport;
 			__be16 dport;
@@ -1319,6 +1329,11 @@ l4_xlate:
 	    (nexthdr == IPPROTO_TCP || nexthdr == IPPROTO_UDP || nexthdr == IPPROTO_SCTP) &&
 	    has_l4_header) {
 		__be16 tmp = backend->port;
+
+		/* This will change the SCTP checksum, which we cannot fix right now.
+		 * This will likely need kernel changes before we can drop this.
+		 */
+		if (nexthdr == IPPROTO_SCTP) return CTX_ACT_DROP;
 
 		/* Port offsets for UDP, TCP, and SCTP are the same */
 		ret = l4_modify_port(ctx, l4_off, TCP_DPORT_OFF, csum_off,

@@ -172,18 +172,14 @@ func newPortNetworkPolicies(config []*cilium.PortNetworkPolicy, dir string) Port
 		Rules: make(map[uint32]PortNetworkPolicyRules, len(config)),
 	}
 	for _, rule := range config {
-		// Ignore UDP policies
-		if rule.GetProtocol() == core.SocketAddress_UDP {
+		// Ignore non TCP policies.
+		if rule.GetProtocol() != core.SocketAddress_TCP {
 			continue
 		}
 
 		port := rule.GetPort()
 		if _, found := policy.Rules[port]; found {
 			ParseError(fmt.Sprintf("Duplicate port number %d in (rule: %v)", port, rule), config)
-		}
-
-		if rule.GetProtocol() != core.SocketAddress_TCP {
-			ParseError(fmt.Sprintf("Invalid transport protocol %v", rule.GetProtocol()), config)
 		}
 
 		// Skip the port if not 'ok'

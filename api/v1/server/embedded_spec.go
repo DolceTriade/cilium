@@ -31,7 +31,7 @@ func init() {
   "info": {
     "description": "Cilium",
     "title": "Cilium API",
-    "version": "v1beta"
+    "version": "v1beta1"
   },
   "basePath": "/v1",
   "paths": {
@@ -3481,6 +3481,7 @@ func init() {
           "enum": [
             "TCP",
             "UDP",
+            "SCTP",
             "ICMP",
             "ICMPV6",
             "ANY"
@@ -3631,6 +3632,7 @@ func init() {
           "enum": [
             "TCP",
             "UDP",
+            "SCTP",
             "ANY"
           ]
         },
@@ -4333,7 +4335,7 @@ func init() {
   "info": {
     "description": "Cilium",
     "title": "Cilium API",
-    "version": "v1beta"
+    "version": "v1beta1"
   },
   "basePath": "/v1",
   "paths": {
@@ -8297,6 +8299,7 @@ func init() {
           "enum": [
             "TCP",
             "UDP",
+            "SCTP",
             "ICMP",
             "ICMPV6",
             "ANY"
@@ -8447,6 +8450,7 @@ func init() {
           "enum": [
             "TCP",
             "UDP",
+            "SCTP",
             "ANY"
           ]
         },

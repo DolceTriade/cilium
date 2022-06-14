@@ -56,7 +56,8 @@
  */
 #if !defined(ENABLE_HOST_SERVICES_FULL) || \
     defined(ENABLE_SOCKET_LB_HOST_ONLY) || \
-    defined(ENABLE_L7_LB)
+    defined(ENABLE_L7_LB)               || \
+    defined(ENABLE_SCTP)
 # define ENABLE_PER_PACKET_LB 1
 #endif
 

@@ -642,6 +642,7 @@ mov
 mul
 multi
 multicore
+multihoming
 multinode
 musl
 mutex
@@ -812,6 +813,7 @@ sandboxing
 scalability
 scalable
 scp
+sctp
 seccomp
 secretName
 secretsBackend

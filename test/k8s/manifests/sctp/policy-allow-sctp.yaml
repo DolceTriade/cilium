@@ -1,0 +1,18 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "iperf3-network-policy"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: iperf3-server
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: iperf3-client
+    toPorts:
+    - ports:
+      - port: "5201"
+        protocol: TCP
+      - port: "5201"
+        protocol: SCTP

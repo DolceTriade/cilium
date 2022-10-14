@@ -54,7 +54,7 @@ require (
 	github.com/mattn/go-shellwords v1.0.12
 	github.com/miekg/dns v1.1.43
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.19.0
+	github.com/onsi/gomega v1.22.1
 	github.com/optiopay/kafka v0.0.0-00010101000000-000000000000
 	github.com/osrg/gobgp/v3 v3.2.0
 	github.com/pmezard/go-difflib v1.0.0
@@ -80,9 +80,9 @@ require (
 	go.uber.org/multierr v1.8.0
 	go.universe.tf/metallb v0.11.0
 	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4
-	golang.org/x/net v0.0.0-20220412020605-290c469a71a5
+	golang.org/x/net v0.0.0-20220722155237-a158d28d115b
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
-	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad
+	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f
 	golang.org/x/time v0.0.0-20220210224613-90d013bbcef8
 	golang.org/x/tools v0.1.10
 	golang.zx2c4.com/wireguard v0.0.0-20211017052713-f87e87af0d9a
@@ -217,7 +217,7 @@ require (
 	google.golang.org/appengine v1.6.7 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/gengo v0.0.0-20211129171323-c02415ce4185 // indirect
 	k8s.io/klog v1.0.0 // indirect
 	sigs.k8s.io/json v0.0.0-20211208200746-9f7c6b3444d2 // indirect

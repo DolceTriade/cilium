@@ -46,7 +46,7 @@ jobs:
       # v1.9 branch pushes
       - name: Checkout v1.9 Branch Source Code
         if: ${{ github.event_name != 'pull_request_target' }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: CI Build ${{ matrix.name }}
         if: ${{ github.event_name != 'pull_request_target' }}
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
@@ -69,7 +69,7 @@ jobs:
       # PR updates
       - name: Checkout PR Source Code
         if: ${{ github.event_name == 'pull_request_target' }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
          ref: ${{ github.event.pull_request.head.sha }}
       - name: CI Build ${{ matrix.name }}
